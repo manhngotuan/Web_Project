@@ -1,0 +1,192 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 12px;
+  gap: 16px;
+  width: 100%;
+  max-width: 260px;
+  min-height: 100vh;
+  background: #e5e7eb; /* Xám nhạt, dịu mắt */
+  color: #1f2a44;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.08);
+  font-family: 'Inter', 'Roboto', sans-serif;
+}
+
+.sidebar-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sidebar-header {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff; /* Chữ trắng để tương phản với xanh nước biển */
+  padding: 12px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #1e3a8a; /* Xanh nước biển đậm */
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.sidebar-header:hover {
+  background: #3b82f6; /* Xanh nước biển nhạt hơn khi hover */
+}
+
+.header-icon {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1); /* Icon trắng để tương phản với nền xanh */
+}
+
+.sidebar-items {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  text-align: left;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center; /* Đổi thành center để căn giữa theo chiều dọc */
+  text-align: left;
+  padding: 8px 16px 8px 52px; /* Tăng thụt lề để rõ cấu trúc cây */
+  border-radius: 6px;
+  cursor: pointer;
+  color: #1f2a44;
+  font-size: 13px; /* Nhỏ hơn sidebar-header */
+  font-weight: 500;
+  background: #f1f5f9; /* Nền nhạt hơn sidebar */
+  border-left: 2px solid #d1d5db; /* Viền trái để gợi ý cấu trúc cây */
+  transition: all 0.2s ease;
+  position: relative; /* Để chứa notification */
+}
+
+.sidebar-item .node-icon {
+  width: 16px; /* Icon node nhỏ làm gạch đầu dòng */
+  height: 16px;
+  margin-right: 8px;
+  flex-shrink: 0; /* Ngăn icon co lại */
+}
+
+.sidebar-item p {
+  margin: 0;
+  flex-grow: 1; /* Text chiếm không gian còn lại bên trái */
+  flex-shrink: 1;
+  min-width: 0; /* Ngăn text tràn ra ngoài */
+}
+
+.sidebar-item:hover {
+  background: #10b981; /* Xanh emerald khi hover */
+  color: white;
+  text-decoration: underline;
+  transform: translateX(4px);
+}
+
+.sidebar-item:hover .node-icon {
+  filter: brightness(0) invert(1); /* Icon node trắng khi hover */
+}
+
+.sidebar-item.active {
+  background: #059669; /* Xanh đậm hơn khi active */
+  color: white;
+  text-decoration: underline;
+}
+
+.sidebar-item.active .node-icon {
+  filter: brightness(0) invert(1); /* Icon node trắng khi active */
+}
+
+/* Notification styling */
+.notification {
+  color: #ffffff; /* Chữ trắng để tương phản */
+  font-size: 12px; /* Tăng kích thước chữ để dễ đọc hơn */
+  font-weight: 600; /* Chữ đậm hơn */
+  position: absolute;
+  top: 50%; /* Căn giữa theo chiều dọc */
+  transform: translateY(-50%); /* Đảm bảo căn giữa chính xác */
+  right: 8px; /* Giảm khoảng cách từ mép phải để gọn hơn */
+  padding: 4px 8px; /* Tăng padding để badge lớn hơn */
+  background: #ef4444; /* Đỏ đậm hơn, nổi bật */
+  border-radius: 12px; /* Giữ bo tròn kiểu badge */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Thêm bóng để nổi bật */
+  z-index: 10; /* Đảm bảo nằm trên các phần tử khác */
+  white-space: nowrap; /* Ngăn xuống dòng */
+  animation: pulse 1.5s infinite ease-in-out; /* Thêm hiệu ứng nhấp nháy nhẹ */
+}
+
+/* Pulse animation for notifications */
+@keyframes pulse {
+  0% {
+    transform: translateY(-50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-50%) scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .sidebar {
+    flex-direction: row;
+    max-width: none;
+    min-height: auto;
+    padding: 12px;
+    justify-content: space-around;
+    gap: 12px;
+    background: #e5e7eb; /* Giữ xám nhạt trên mobile */
+  }
+
+  .sidebar-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar-header {
+    font-size: 13px;
+    padding: 10px;
+    gap: 8px;
+    background: #1e3a8a; /* Giữ xanh nước biển trên mobile */
+  }
+
+  .header-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .sidebar-items {
+    gap: 4px;
+  }
+
+  .sidebar-item {
+    font-size: 12px;
+    padding: 8px 12px; /* Không thụt lề trên mobile */
+    border-left: none; /* Xóa viền trái trên mobile */
+    transform: none !important;
+    background: #f1f5f9;
+  }
+
+  .sidebar-item .node-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .notification {
+    font-size: 10px; /* Nhỏ hơn trên mobile */
+    padding: 2px 6px; /* Padding nhỏ hơn */
+    right: 6px; /* Giảm khoảng cách từ mép phải */
+    border-radius: 10px; /* Bo tròn nhẹ hơn */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Bóng nhẹ hơn trên mobile */
+  }
+}

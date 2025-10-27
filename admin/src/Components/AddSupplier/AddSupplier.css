@@ -1,0 +1,352 @@
+/* ============================
+   AddSupplier.css (Cập nhật)
+   - Xếp supplier thành nhiều cột (grid)
+   - Avatar initials khi supplier không có ảnh
+   - Modal overlay tách riêng hiển thị bảng sản phẩm
+   ============================ */
+
+/* Reset cơ bản */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f7fa;
+  color: #212529;
+  margin: 0;
+}
+
+/* Container chính */
+.supplier-container {
+  max-width: 1200px;
+  margin: 28px auto;
+  padding: 20px;
+}
+
+/* Tiêu đề */
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #2d3748;
+}
+
+/* alert/message */
+.alert {
+  padding: 10px 12px;
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+/* Top row (search) */
+.top-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.search-bar {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  background: #ffffff;
+}
+
+/* Loading / empty text */
+.loading,
+.empty {
+  text-align: center;
+  color: #6b7280;
+  margin: 18px 0;
+}
+
+/* ===== Supplier list (GRID - nhiều cột) ===== */
+/* Mobile-first: mặc định 1 cột */
+.supplier-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+/* 2 cột trở lên: tablet */
+@media (min-width: 680px) {
+  .supplier-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 3 cột: small desktop */
+@media (min-width: 992px) {
+  .supplier-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 4 cột: large desktop */
+@media (min-width: 1200px) {
+  .supplier-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Card nhà cung cấp: hiển thị nội dung ngang trong card */
+.supplier-card {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 12px 14px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  border: 1px solid #e6eef6;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.supplier-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+/* Avatar area */
+.card-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Avatar image if any */
+.avatar-img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #f1f5f9;
+}
+
+/* Avatar with initials */
+.avatar-initials {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 18px;
+  border: 2px solid rgba(255,255,255,0.08);
+}
+
+/* Body info */
+.card-body {
+  min-width: 0;
+}
+
+.supplier-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.supplier-company {
+  font-size: 13px;
+  color: #475569;
+  margin-bottom: 8px;
+}
+
+.supplier-meta {
+  font-size: 13px;
+  color: #4b5563;
+  display: grid;
+  gap: 4px;
+}
+
+/* website link */
+.supplier-website a {
+  color: #2563eb;
+  text-decoration: none;
+}
+.supplier-website a:hover {
+  text-decoration: underline;
+}
+
+/* Actions area */
+.card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/* Buttons */
+.btn-approve,
+.btn-detail,
+.btn-close {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+/* approve button green */
+.btn-approve {
+  background: #16a34a;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(22, 163, 74, 0.08);
+}
+.btn-approve:hover { background: #13803d; }
+
+/* view detail button blue */
+.btn-detail {
+  background: #0ea5e9;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(14, 165, 233, 0.08);
+}
+.btn-detail:hover { background: #0284c7; }
+
+/* Close button in modal */
+.btn-close {
+  background: #ef4444;
+  color: #fff;
+}
+.btn-close:hover { background: #dc2626; }
+
+/* ===== Overlay & modal for product table ===== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  z-index: 1200;
+}
+
+/* Modal */
+.detail-modal {
+  width: 100%;
+  max-width: 1100px;
+  max-height: 88vh;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 18px;
+  overflow: auto;
+  box-shadow: 0 10px 40px rgba(2, 6, 23, 0.3);
+  position: relative;
+}
+
+/* Header modal */
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.detail-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #0f172a;
+}
+
+/* Table wrapper for horizontal scroll on small screens */
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Product table */
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 900px; /* đảm bảo table ko vỡ layout trên desktop */
+}
+
+.product-table th,
+.product-table td {
+  padding: 10px 12px;
+  border: 1px solid #e6eef6;
+  vertical-align: middle;
+  text-align: left;
+}
+
+.product-table th {
+  background: #f8fafc;
+  color: #111827;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+/* zebra */
+.product-table tbody tr:nth-child(even) {
+  background: #fbfdff;
+}
+
+/* image cell */
+.td-image {
+  width: 84px;
+  text-align: center;
+}
+
+.prod-img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #e6eef6;
+}
+
+/* placeholder for missing product image */
+.prod-placeholder {
+  width: 64px;
+  height: 64px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: #f1f5f9;
+  color: #94a3b8;
+  font-weight: 700;
+  border: 1px dashed #e2e8f0;
+}
+
+/* Responsive tweaks (card nội dung xếp lại) */
+@media (max-width: 880px) {
+  .supplier-card {
+    grid-template-columns: 56px 1fr;
+    gap: 10px;
+  }
+  .card-actions {
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .supplier-list {
+    grid-template-columns: 1fr; /* mobile 1 cột */
+  }
+  .product-table {
+    min-width: 700px;
+    font-size: 13px;
+  }
+}

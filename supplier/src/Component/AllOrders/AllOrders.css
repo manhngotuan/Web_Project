@@ -1,0 +1,235 @@
+.all-orders {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  min-height: 100vh;
+  background: #fafafa;
+}
+
+.allorders-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+/* Grid hiển thị tile */
+.orders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+  width: 100%;
+}
+
+/* Tile đơn hàng */
+.order-card {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80%;
+}
+
+.order-card:hover {
+  transform: translateY(-40px);
+  box-shadow: 0 5px 18px rgba(0,0,0,0.15);
+}
+
+.order-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 15px;
+}
+
+/* Status */
+.status-label {
+  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  color: white;
+  width: fit-content;
+}
+
+.status-label.pending { background-color: #fbc02d; }
+.status-label.confirmed { background-color: #1976D2; }
+.status-label.completed { background-color: #4CAF50; }
+.status-label.canceled { background-color: #D32F2F; }
+
+/* Overlay */
+.order-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  overflow-y: auto;
+}
+
+.order-overlay.active {
+  display: flex;
+}
+
+.order-overlay-content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  width: 95%;
+  max-width: 1200px;
+  max-height: 90%;
+  overflow-y: auto;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.order-overlay .close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #D32F2F;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+/* Table sản phẩm */
+.order-items-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+.order-items-table th,
+.order-items-table td {
+  padding: 12px;
+  text-align: center;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.order-items-table th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.product-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.order-total {
+  text-align: right;
+  font-size: 18px;
+  font-weight: 600;
+  color: #097031;
+  margin-top: 20px;
+}
+
+/* Container chứa các nút hành động */
+.order-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* Buttons */
+button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.confirm-btn { background-color: #1976D2; }
+.confirm-btn:hover { background-color: #1565C0; }
+
+.complete-btn { background-color: #4CAF50; }
+.complete-btn:hover { background-color: #388E3C; }
+
+.download-btn { background-color: #FF5722; }
+.download-btn:hover { background-color: #E64A19; }
+
+.cancel-btn {
+  background-color: #e74c3c;
+}
+.cancel-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .orders-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+  .order-overlay-content {
+    width: 95%;
+    padding: 16px;
+  }
+}
+
+/* Highlight ngày đặt */
+.highlight-date {
+  font-weight: bold;
+  color: #d9534f;
+  font-size: 15px;
+}
+
+/* Bộ lọc */
+.filter-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.filter-select {
+  padding: 8px 14px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 180px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.filter-select:hover {
+  border-color: #1976D2;
+  box-shadow: 0 3px 8px rgba(25, 118, 210, 0.2);
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #1565C0;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.2);
+}
+
+/* Khoảng cách cho title và đoạn văn */
+.order-overlay-content h3,
+.order-overlay-content p {
+  margin-bottom: 20px;
+}

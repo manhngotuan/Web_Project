@@ -1,0 +1,384 @@
+.all-orders {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  margin: 20px auto;
+  background: #f9fafb;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-family: "Roboto", sans-serif;
+}
+
+.allorders-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #1e293b;
+  letter-spacing: 0.5px;
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(4, auto) 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 800px;
+  justify-content: center;
+}
+
+.tab-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.tabs button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #f1f5f9;
+  transition: background-color 0.3s ease;
+}
+
+.tabs button.active {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.tabs button:hover {
+  background-color: #e2e8f0;
+}
+
+.order-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #ef4444;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: popIn 0.3s ease-in-out;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.orders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.order-card {
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
+  cursor: pointer;
+}
+
+.order-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.order-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.order-summary p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.order-summary p strong {
+  color: #1e293b;
+  min-width: 100px;
+  font-weight: 500;
+}
+
+.order-summary p:hover {
+  color: #3b82f6;
+}
+
+.status-label {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 500;
+  color: white;
+}
+
+.status-label.pending {
+  background-color: #fefce8;
+  color: #854d0e;
+}
+
+.status-label.confirmed {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.status-label.completed {
+  background-color: #ecfdf5;
+  color: #065f46;
+}
+
+.status-label.canceled {
+  background-color: #fef2f2;
+  color: #991b1b;
+}
+
+.order-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  overflow-y: auto;
+}
+
+.order-overlay.active {
+  display: flex;
+}
+
+.order-overlay-content {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  width: 95%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.order-overlay-content h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 16px;
+}
+
+.order-overlay-content p {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.order-overlay-content p strong {
+  color: #1e293b;
+  font-weight: 500;
+}
+
+.highlight-date {
+  font-weight: bold;
+  color: #d9534f;
+}
+
+.order-items-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+.order-items-table th,
+.order-items-table td {
+  padding: 12px;
+  border: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+.order-items-table th {
+  background-color: #f1f5f9;
+  font-weight: 600;
+}
+
+.product-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.order-total {
+  text-align: right;
+  font-size: 16px;
+  font-weight: 600;
+  color: #097031;
+  margin-top: 16px;
+}
+
+.order-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.order-actions button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.confirm-btn {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.confirm-btn:hover {
+  background-color: #2563eb;
+}
+
+.complete-btn {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.complete-btn:hover {
+  background-color: #2563eb;
+}
+
+.cancel-btn {
+  background-color: #ef4444;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: #dc2626;
+}
+
+.download-btn {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.download-btn:hover {
+  background-color: #2563eb;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.loading {
+  text-align: center;
+  font-size: 16px;
+  color: #64748b;
+  margin: 40px 0;
+}
+
+.empty-text {
+  text-align: center;
+  font-size: 16px;
+  color: #94a3b8;
+  margin: 40px 0;
+  font-style: italic;
+}
+
+@media (max-width: 1024px) {
+  .all-orders {
+    padding: 15px;
+  }
+
+  .orders-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .tabs {
+    grid-template-columns: 1fr; /* Một cột trên màn hình nhỏ */
+    gap: 8px;
+  }
+
+  .tabs button {
+    width: 100%;
+  }
+
+  .order-overlay-content {
+    width: 100%;
+    padding: 16px;
+  }
+}
+
+.sort-buttons {
+  margin: 20px 0;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.sort-buttons button {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.sort-buttons button.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.sort-buttons button:hover {
+  background-color: #e0e0e0;
+}
+
+.sort-buttons button.active:hover {
+  background-color: #0056b3;
+}

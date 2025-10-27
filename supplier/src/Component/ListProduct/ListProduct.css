@@ -1,0 +1,130 @@
+.list-product {
+  width: 100%;
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.listproduct-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  text-align: center;
+  color: #2c3e50;
+  letter-spacing: 0.5px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: all 0.25s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.product-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.product-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-card-img {
+  transform: scale(1.05);
+}
+
+.remove-icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 6px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.remove-icon:hover {
+  background: rgba(231, 76, 60, 0.9);
+  transform: rotate(90deg);
+}
+
+.product-card-info {
+  padding: 18px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card-info h3 {
+  margin: 0 0 10px;
+  font-size: 19px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.product-card-info p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.4;
+}
+
+.sizes {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.size-tag {
+  display: inline-block;
+  background: #ecf0f1;
+  color: #2c3e50;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 6px;
+  padding: 5px 9px;
+  margin: 4px 6px 0 0;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.size-tag:hover {
+  background: #3498db;
+  color: #fff;
+}
+
+.size-tag.empty {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.empty-text {
+  text-align: center;
+  color: #888;
+  margin-top: 40px;
+  font-size: 17px;
+  font-style: italic;
+}

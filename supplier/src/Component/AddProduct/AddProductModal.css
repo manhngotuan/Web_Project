@@ -1,0 +1,269 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background: #fff;
+  width: 98%;
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  padding: 25px;
+  overflow-y: auto;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.modal-header h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2d2d2d;
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.modal-close-btn:hover {
+  background: #ff4d4f;
+  color: #fff;
+}
+
+.bulk-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0px;
+  font-size: 14px;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+
+.bulk-table th,
+.bulk-table td {
+  border: 1px solid #e0e0e0;
+  padding: 12px;
+  text-align: left;
+}
+
+.bulk-table th {
+  background: #4a90e2;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.bulk-table td input[type="text"],
+.bulk-table td input[type="number"],
+.bulk-table td select {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 1.5;
+  min-height: 36px;
+}
+
+.bulk-table td select {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 1.5;
+  min-height: 36px;
+}
+
+.bulk-table td input[type="file"] {
+  display: none;
+}
+
+.bulk-table td .upload-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #4a90e2;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.bulk-table td .upload-area:hover {
+  background: #f5f7fa;
+}
+
+.bulk-table td .upload-area img {
+  height: 60px;
+  width: 60px;
+  object-fit: contain;
+}
+
+.bulk-table td .upload-area-text {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #4a90e2;
+  text-align: center;
+}
+
+.addproduct-itemfield .upload-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #4a90e2;
+  border-radius: 8px;
+  padding: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.addproduct-itemfield .upload-area:hover {
+  background: #f5f7fa;
+}
+
+.addproduct-itemfield .upload-area img {
+  height: 80px;
+  width: 80px;
+  object-fit: contain;
+}
+
+.addproduct-itemfield .upload-area-text {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #4a90e2;
+  text-align: center;
+}
+
+.image-selected {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+  color: #4a90e2;
+  text-align: center;
+}
+
+.row-error {
+  background-color: #fff0f0 !important;
+}
+
+.status-cell {
+  font-weight: 600;
+  text-align: center;
+}
+
+.status-success {
+  color: #28a745;
+}
+
+.status-error {
+  color: #dc3545;
+}
+
+.addproduct-btn {
+  width: 100%;
+  height: 50px;
+  border-radius: 8px;
+  background: #4a90e2;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background 0.3s;
+  margin-top: 20px;
+}
+
+.addproduct-btn:hover {
+  background: #357abd;
+}
+
+.addproduct-btn:active {
+  background: #2a6099;
+}
+
+.remove-product-btn {
+  border: none;
+  background: #ff4d4f;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 6px 10px;
+  font-size: 12px;
+  transition: background 0.2s;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove-product-btn:hover {
+  background: #d9363e;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .bulk-table {
+    font-size: 12px;
+  }
+
+  .bulk-table th,
+  .bulk-table td {
+    padding: 8px;
+  }
+
+  .bulk-table th {
+    font-size: 11px;
+  }
+
+  .bulk-table td .upload-area img {
+    height: 40px;
+    width: 40px;
+  }
+
+  .addproduct-itemfield .upload-area img {
+    height: 60px;
+    width: 60px;
+  }
+
+  .bulk-table td input[type="text"],
+  .bulk-table td input[type="number"],
+  .bulk-table td select {
+    min-height: 32px;
+  }
+}

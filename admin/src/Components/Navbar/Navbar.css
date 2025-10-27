@@ -1,0 +1,216 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 60px;
+  box-shadow: 0 1px 3px -2px #000;
+  margin-bottom: 1px;
+  background: #ffffff;
+  z-index: 100;
+}
+
+.nav-logo {
+  width: 100px;
+}
+
+.nav-profile {
+  width: 75px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Dropdown styles */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative; /* Để dropdown định vị tương đối với nav-right */
+}
+
+.nav-dropdown {
+  position: absolute;
+  top: 100%; /* Đặt dropdown ngay dưới ảnh profile */
+  right: 0;
+  background: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  z-index: 200;
+  min-width: 180px;
+  padding: 10px;
+}
+
+.dropdown-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.dropdown-item {
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  color: #333;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f5f9; /* Màu xám nhạt khi hover */
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Nền mờ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.change-password-modal {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.change-password-modal h2 {
+  margin-bottom: 20px;
+  color: #1e3a8a;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.change-password-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-group {
+  position: relative;
+  width: 100%;
+}
+
+.change-password-form input {
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.change-password-form input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+}
+
+.check-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+}
+
+.change-password-form .error {
+  color: #dc2626;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.change-password-btn,
+.cancel-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.change-password-btn {
+  background-color: #3b82f6; /* Màu xanh giống nút đăng nhập */
+  color: white;
+}
+
+.change-password-btn:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+.cancel-btn {
+  background-color: #e5e7eb; /* Màu xám nhạt */
+  color: #333;
+}
+
+.cancel-btn:hover {
+  background-color: #d1d5db;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .navbar {
+    padding: 15px 30px;
+  }
+
+  .nav-logo {
+    width: 75px;
+  }
+
+  .nav-profile {
+    width: 60px;
+  }
+
+  .nav-dropdown {
+    min-width: 160px; /* Giảm kích thước dropdown cho mobile */
+  }
+
+  .dropdown-item {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+
+  .change-password-modal {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .change-password-form input {
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+
+  .check-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .change-password-btn,
+  .cancel-btn {
+    font-size: 0.85rem;
+    padding: 8px 15px;
+  }
+}

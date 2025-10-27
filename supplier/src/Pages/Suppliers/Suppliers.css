@@ -1,0 +1,11 @@
+.suppliers {
+  display: flex;
+  min-height: calc(100vh - 74px);
+  background: #ececec; /* nền xám dịu mắt */
+}
+
+@media(max-width:800px){
+  .suppliers {
+    flex-direction: column;
+  }
+}

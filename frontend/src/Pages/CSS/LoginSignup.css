@@ -1,0 +1,179 @@
+.loginsignup {
+  width: 100%;
+  min-height: 100vh;
+  background: #f6f6f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.loginsignup-container {
+  width: 420px;
+  max-width: 95%;
+  background: white;
+  padding: 30px 35px;
+  border-radius: 30px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+}
+
+.loginsignup-container h1 {
+  margin: 10px 0 20px;
+  text-align: center;
+  font-size: 26px;
+  color: #333;
+}
+
+.loginsignup-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.loginsignup-fields input,
+.loginsignup-fields select {
+  height: 52px;
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  outline: none;
+  color: #444;
+  font-size: 15px;
+  border-radius: 12px;
+  transition: 0.3s border, 0.3s background;
+  background: #fff;
+  appearance: none; /* Ẩn mũi tên mặc định của select */
+  box-sizing: border-box;
+}
+
+.loginsignup-fields input:focus,
+.loginsignup-fields select:focus {
+  border-color: #ff4141;
+  background: #fffafa;
+}
+
+.loginsignup-container button {
+  width: 100%;
+  height: 52px;
+  color: white;
+  background: #ff4141;
+  margin-top: 20px;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: 0.3s background;
+}
+
+.loginsignup-container button:hover {
+  background: #e03a3a;
+}
+
+.loginsignup-login {
+  margin-top: 15px;
+  color: #666;
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.loginsignup-login span {
+  color: #ff4141;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.loginsignup-agree {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  gap: 8px;
+  color: #555;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.custom-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.custom-checkbox.checked {
+  border-color: #ff4141;
+}
+.custom-checkbox img {
+  width: 14px;
+  height: 14px;
+}
+
+.field-with-check {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.field-with-check input {
+  width: 100%;
+  padding-right: 40px; /* chừa chỗ icon bên phải */
+  box-sizing: border-box;
+}
+.field-with-check img {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+}
+
+.password-field {
+  position: relative;
+}
+.password-field span {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ff4141;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.error-text {
+  font-size: 14px;
+  color: #ff4141;
+  margin-top: -10px;
+  margin-bottom: 5px;
+  right: 15px;
+}
+
+@media(max-width:800px){
+  .loginsignup-container {
+    padding: 20px;
+    border-radius: 20px;
+  }
+  .loginsignup-container h1 {
+    font-size: 22px;
+  }
+  .loginsignup-fields input,
+  .loginsignup-fields select {
+    height: 45px;
+    font-size: 14px;
+  }
+  .loginsignup-container button {
+    height: 45px;
+    font-size: 16px;
+  }
+  .loginsignup-agree {
+    font-size: 13px;
+  }
+}

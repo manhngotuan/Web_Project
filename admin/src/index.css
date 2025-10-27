@@ -1,0 +1,112 @@
+/* Cơ bản toàn trang */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f6f6f6;
+  height: 100%;
+  color: #333;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #f6f6f6 0%, #e0e7ff 100%);
+  padding: 20px;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff;
+  padding: 40px 50px; /* Slightly wider padding */
+  border-radius: 16px; /* Softer corners */
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15); /* Deeper shadow */
+  width: 100%;
+  max-width: 420px; /* Slightly wider form */
+  transition: transform 0.3s ease; /* Smooth scaling on hover */
+}
+
+.login-container form:hover {
+  transform: scale(1.02); /* Slight zoom effect on hover */
+}
+
+.login-container .login-logo {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+  color: #1e3a8a;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.login-container input {
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-container input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.4); /* Stronger glow on focus */
+}
+
+.login-container button {
+  padding: 12px 30px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-container button:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+.login-container button:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.4); /* Focus ring for accessibility */
+}
+
+.login-container .error {
+  color: #dc2626;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+  .login-container form {
+    padding: 30px;
+    max-width: 90%;
+  }
+
+  .login-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .login-logo {
+    width: 100px;
+  }
+}
